@@ -2,24 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
-            steps {
-                sh '''
-                echo building with version
-                ls -al
-                npm --version
-                npm ci
-                npm run build
-                ls -al
-                '''
-            }
-        }
+        // Skipping Build Stage As it is taking lot of time while devloping pipeline
+        // stage('Build') {
+        //     agent {
+        //         docker {
+        //             image 'node:18-alpine'
+        //             reuseNode true
+        //         }
+        //     }
+        //     steps {
+        //         sh '''
+        //         echo building with version
+        //         ls -al
+        //         npm --version
+        //         npm ci
+        //         npm run build
+        //         ls -al
+        //         '''
+        //     }
+        // }
 
 
         stage('Tests') {
